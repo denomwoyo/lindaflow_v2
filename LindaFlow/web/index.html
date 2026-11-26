@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071b2b">
+<title>LindaFlow | M-Pesa Security</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><div class="brand"><span class="mark">L</span><div><strong>LindaFlow</strong><small>M-Pesa fraud intelligence</small></div></div><div id="connection" class="status">Checking connection…</div></header>
+<main>
+<section class="hero"><div><p class="eyebrow">MERCHANT SECURITY CONSOLE</p><h1>Know the risk.<br><span>Before you release.</span></h1><p>Real-time transaction screening with local-first protection when connectivity drops.</p></div><div class="hero-score"><span>PROTECTION</span><strong id="mode">ACTIVE</strong><small>Local rules engine ready</small></div></section>
+<section class="metrics">
+<div class="metric"><span>Transactions</span><strong id="total">0</strong></div>
+<div class="metric"><span>Needs review</span><strong id="review">0</strong></div>
+<div class="metric"><span>High risk</span><strong id="high">0</strong></div>
+<div class="metric"><span>Queued offline</span><strong id="queued">0</strong></div>
+</section>
+<section class="panel">
+<div class="section-head"><div><p class="eyebrow">SCREEN A PAYMENT</p><h2>New transaction check</h2></div><span class="local-tag">LOCAL-FIRST</span></div>
+<form id="check-form">
+<div class="fields">
+<label>Merchant ID<input id="merchant" placeholder="e.g. shop-001" required></label>
+<label>Customer phone<input id="phone" placeholder="2547XXXXXXXX" required inputmode="tel"></label>
+<label>Amount (KES)<input id="amount" type="number" min="1" step="1" placeholder="2500" required></label>
+<label>Reference<input id="reference" placeholder="Invoice or order number"></label>
+</div>
+<button type="submit">Assess transaction</button>
+</form>
+<div id="assessment" class="assessment hidden"></div>
+</section>
+<section class="panel">
+<div class="section-head"><div><p class="eyebrow">ACTIVITY</p><h2>Recent transactions</h2></div><button class="secondary" id="refresh">Refresh</button></div>
+<div class="table-wrap"><table><thead><tr><th>Time</th><th>Phone</th><th>Amount</th><th>Risk</th><th>Decision</th><th>Status</th></tr></thead><tbody id="transactions"><tr><td colspan="6">No transactions yet</td></tr></tbody></table></div>
+</section>
+<section class="panel">
+<div class="section-head"><div><p class="eyebrow">DARaja API</p><h2>Payment initiation</h2></div></div>
+<p class="muted">Initiate a customer STK Push through your configured Daraja application. Credentials remain on the server.</p>
+<form id="stk-form">
+<div class="fields">
+<label>Phone<input id="stk-phone" placeholder="2547XXXXXXXX" required></label>
+<label>Amount (KES)<input id="stk-amount" type="number" min="1" required></label>
+<label>Account reference<input id="stk-ref" placeholder="ORDER-1001" required></label>
+<label>Description<input id="stk-desc" placeholder="Payment for goods"></label>
+</div><button type="submit">Send STK Push</button>
+</form><pre id="stk-result" class="result hidden"></pre>
+</section>
+</main>
+<footer>LindaFlow · Protecting everyday digital commerce</footer>
+<script src="/app.js"></script>
+</body></html>

@@ -1,0 +1,12 @@
+services:
+  lindaflow:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      - lindaflow-data:/app/data
+    restart: unless-stopped
+volumes:
+  lindaflow-data:
